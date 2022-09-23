@@ -21,14 +21,12 @@ import org.apache.spark.internal.Logging
 import scalaj.http.BaseHttp
 
 import scala.concurrent.duration.Duration
-import za.co.absa.spline.harvester.dispatcher.httpdispatcher.rest.RestEndpoint
-import za.co.absa.spline.harvester.dispatcher.httpdispatcher.rest.RestClient
 
 trait AzureRestClient {
-  def endpoint(url: String): RestEndpoint
+  def endpoint(url: String): AzureRestEndpoint
 }
 
-object AzureRestClient extends RestClient with (Logging) {
+object AzureRestClient extends Logging {
   /**
    * @param baseHttp          HTTP client
    * @param baseURL           REST endpoint base URL
@@ -48,7 +46,7 @@ object AzureRestClient extends RestClient with (Logging) {
 
     //noinspection ConvertExpressionToSAM
     new AzureRestClient {
-      override def endpoint(resource: String): RestEndpoint = new RestEndpoint(
+      override def endpoint(resource: String): AzureRestEndpoint = new AzureRestEndpoint(
         baseHttp(s"$baseURL/$resource")
           .timeout(connectionTimeout.toMillis.toInt, readTimeout.toMillis.toInt)
           .header(AzureSplineHeaders.Timeout, readTimeout.toMillis.toString)

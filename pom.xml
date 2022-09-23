@@ -10,9 +10,77 @@
 		<encoding>UTF-8</encoding>
 		<scala.version>2.12.3</scala.version>
 		<scala.compat.version>2.12</scala.compat.version>
+		<scala.binary.version>2.12</scala.binary.version>
+		
+		<spark.version>${spark-32.version}</spark.version>
+        <spark-22.version>2.2.3</spark-22.version>
+        <spark-23.version>2.3.4</spark-23.version>
+        <spark-24.version>2.4.8</spark-24.version>
+        <spark-30.version>3.0.3</spark-30.version>
+        <spark-31.version>3.1.3</spark-31.version>
+        <spark-32.version>3.2.1</spark-32.version>
+        <spark-33.version>3.3.0</spark-33.version>
 	</properties>
 
 	<dependencies>
+	<!-- Spark -->
+
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-core_${scala.binary.version}</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-sql_${scala.binary.version}</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-hive_${scala.binary.version}</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-sql-kafka-0-10_${scala.binary.version}</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-avro_${scala.binary.version}</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.databricks</groupId>
+                <artifactId>spark-xml_${scala.binary.version}</artifactId>
+                <version>0.5.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.crealytics</groupId>
+                <artifactId>spark-excel_${scala.binary.version}</artifactId>
+                <version>0.13.7</version>
+            </dependency>
+            <dependency>
+                <groupId>com.datastax.spark</groupId>
+                <artifactId>spark-cassandra-connector_${scala.binary.version}</artifactId>
+                <version>2.4.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mongodb.spark</groupId>
+                <artifactId>mongo-spark-connector_${scala.binary.version}</artifactId>
+                <version>2.4.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch-hadoop</artifactId>
+                <version>7.6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>za.co.absa.cobrix</groupId>
+                <artifactId>spark-cobol_${scala.binary.version}</artifactId>
+                <version>2.0.8</version>
+            </dependency>
+	
 		<!-- https://mvnrepository.com/artifact/za.co.absa.spline.agent.spark/spark-3.2-spline-agent-bundle -->
 		<dependency>
 		    <groupId>za.co.absa.spline.agent.spark</groupId>

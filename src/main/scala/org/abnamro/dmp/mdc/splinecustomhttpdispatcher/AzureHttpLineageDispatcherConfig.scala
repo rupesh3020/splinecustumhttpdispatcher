@@ -35,7 +35,7 @@ object AzureHttpLineageDispatcherConfig {
   def apply(c: Configuration) = new AzureHttpLineageDispatcherConfig(c)
 }
 
-class HttpLineageDispatcherConfig(config: Configuration) {
+class AzureHttpLineageDispatcherConfig(config: Configuration) {
   val producerUrl: String = config.getRequiredString(ProducerUrlProperty)
   val connTimeout: Duration = config.getRequiredLong(ConnectionTimeoutMsKey).millis
   val readTimeout: Duration = config.getRequiredLong(ReadTimeoutMsKey).millis
